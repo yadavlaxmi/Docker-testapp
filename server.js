@@ -8,7 +8,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-const MONGO_URL = process.env.MONGO_URL || "mongodb://laxmi:1234@localhost:27017/?authSource=admin";
+const MONGO_URL = process.env.MONGO_URL;
+if (!MONGO_URL) {
+    throw new Error("MONGO_URL is required. Set it in your environment or .env file.");
+}
 const client = new MongoClient(MONGO_URL);
 const DB_NAME = "docker-db";
 let db;

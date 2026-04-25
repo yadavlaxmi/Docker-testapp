@@ -24,18 +24,24 @@ A simple Node.js + Express app connected to MongoDB, with a basic signup form fr
 
 ## Run with Docker (Recommended)
 
-1. Build and start all services:
+1. Add credentials in `.env` (or copy from `.env.example` first):
+
+```bash
+cp .env.example .env
+```
+
+2. Build and start all services:
 
 ```bash
 docker compose up -d --build
 ```
 
-2. Open services:
+3. Open services:
 
 - App: http://localhost:5050
 - Mongo Express: http://localhost:8081
 
-3. Stop services:
+4. Stop services:
 
 ```bash
 docker compose down
@@ -56,6 +62,8 @@ npm install
 ```bash
 export MONGO_URL='mongodb://<username>:<password>@localhost:27017/docker-db?authSource=admin'
 ```
+
+You can also store this in a local `.env` file and export it via your shell tooling.
 
 4. Start server:
 
